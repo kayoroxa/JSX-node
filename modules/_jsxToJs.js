@@ -77,10 +77,6 @@ function convertAllJsx(foldInput, foldExport) {
 function convertAllCss(foldInput, foldExport) {
   const allCSSFilesNames = getAllNamesFiles(foldInput, 'css')
 
-  // .map(v =>
-  //
-  // )
-
   const getPath = fileName => {
     return pathJoin(module.parent?.path, foldInput, fileName)
   }
@@ -97,5 +93,13 @@ function convertAllCss(foldInput, foldExport) {
     )
   }
 }
+
+const { readdirSync, rmSync } = require('fs')
+const dir = './dist'
+
+readdirSync(dir).forEach(f => {
+  if (f.includes('.gitkeep')) return
+  rmSync(`${dir}/${f}`)
+})
 
 module.exports = { _jsxToJs, convertAllJsx, convertAllCss }
