@@ -14,7 +14,7 @@ function _jsxToJs(relativePath, foldExport = 'dist') {
   })
 
   // file = file.replace(/import ({?.*}?) from (.*)/g, 'const $1 = require($2)')
-  file = file.replace('onClick={_add}', 'onclick={_add()}')
+  file = file.replace('onClick={_add}', 'onclick="_add()"')
   file = file.replace(/(?<=.)(jsx)(?=['"])/g, `js`)
   // file = file.replace('export default', 'module.exports =')
 
@@ -28,6 +28,7 @@ function _jsxToJs(relativePath, foldExport = 'dist') {
       /(?<![([<]|const[\s]|var[\s]|let[\s]|=[\s]|import[\s]){(.*?)}/g,
       '${$1}'
     )
+    .replace(/\>\`/g, ">`.replace(/>,</g, '><')")
 
   return newFileString
 }

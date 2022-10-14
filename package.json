@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "node _exec_config.js"
+  },
   "dependencies": {
     "express": "^4.18.2"
   }

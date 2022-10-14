@@ -7,10 +7,8 @@ export default function index() {
 
   return (
     <div>
-      Minhas hello beijin
-      {foodsName.map(f => food({ name: f })).join('')}
+      Beijo teste bom bom
+      {foodsName.map(f => food({ name: f }))}
     </div>
   )
 }
-
-//global
